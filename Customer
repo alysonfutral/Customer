@@ -1,0 +1,87 @@
+/**
+ * Prints Customer name, balance, and location.
+ *
+ * @author Alyson Futral - CPSC 1220 - A01
+ * @version 10/26/2023
+ */
+public class Customer implements Comparable<Customer> {
+
+    private String name;
+    private String location;
+    private double balance;
+
+    /**
+     * Uses constructor.
+     * @param nameIn used.
+     */
+    public Customer(String nameIn) {
+        name = nameIn;
+        location = "";
+        balance = 0;
+    }
+
+    /**
+     * Uses method.
+     * @param locationIn used.
+     */
+    public void setLocation(String locationIn) {
+        location = locationIn;
+    }
+
+    /**
+     * Uses method.
+     * @param amount used.
+     */
+    public void changeBalance(double amount) {
+        balance += amount;
+    }
+
+    /**
+     * Uses method.
+     * @return used.
+     */
+    public String getLocation() {
+        return location;
+    }
+
+    /**
+     * Uses method.
+     * @return used.
+     */
+    public double getBalance() {
+        return balance;
+    }
+
+    /**
+     * Uses method.
+     * @param city used.
+     * @param state used.
+     */
+    public void setLocation(String city, String state) {
+        location = city + ", " + state;
+    }
+
+    /**
+     * Uses method.
+     * @return used.
+     */
+    public String toString() {
+        String str = name + "\n" + location + "\n" + "$" + balance;
+        return str;
+    }
+
+    /**
+     * Uses method.
+     * @param obj used.
+     * @return used.
+     */
+    public int compareTo(Customer obj) {
+        if (Math.abs(this.balance - obj.getBalance()) < 0.000001) {
+            return 0;
+        } else if (this.balance < obj.getBalance()) {
+            return -1;
+        } else {
+            return 1;
+        }
+    }
+}
